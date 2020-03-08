@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  flaskapp:
+    build: ./flaskappdoc
+    container_name: flaskapp
+    networks:
+      - backend
+
+  nginx:
+    build: ./nginx
+    environment:
+      - SERVER_NAMEE=0.0.0.0
+    restart: always
+    ports:
+      - "80:80"
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge

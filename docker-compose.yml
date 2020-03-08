@@ -3,8 +3,7 @@ version: '3'
 services:
   flaskapp:
     build: ./flaskapp-docker
-    ports:
-      - "8000:8000"
+    container_name: flaskapp
     network_mode: host
 
   nginx:
